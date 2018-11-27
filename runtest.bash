@@ -1,14 +1,14 @@
 #!/bin/bash
 ## Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv
 
-##if [ $# -ne 2 ]; then
-##        (>&2 echo Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv)
-##    exit 1
-##fi
+if [ $# -ne 2 ]; then
+        (>&2 echo Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv)
+    exit 1
+fi
 
-##EXE=$1
-##CSVFILE=$2
-##CORES=$(grep -c '^processor' /proc/cpuinfo)
+EXE=$1
+CSVFILE=$2
+CORES=$(grep -c '^processor' /proc/cpuinfo)
 
 ##for threads in 2 4 8 16
 ##do
