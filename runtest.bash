@@ -1,27 +1,27 @@
 #!/bin/bash
 ## Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv
 
-if [ $# -ne 2 ]; then
-        (>&2 echo Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv)
-    exit 1
-fi
+##if [ $# -ne 2 ]; then
+##        (>&2 echo Usage: bash runtest.bash ./thread_incr_psem experiment`date +%Y%m%d%M`.csv)
+##    exit 1
+##fi
 
-EXE=$1
-CSVFILE=$2
-CORES=$(grep -c '^processor' /proc/cpuinfo)
+##EXE=$1
+##CSVFILE=$2
+##CORES=$(grep -c '^processor' /proc/cpuinfo)
 
-for threads in 2 4 8 16
-do
-  for loops in 20000000 40000000 80000000 160000000
-  do
-    for runs in `seq 3`
-      do
-        /usr/bin/time -f "$CORES, $loops, $threads, %e, %U, %S" \
-            --append --quiet --output=$CSVFILE \
-            $1 $loops $threads
-    done
-  done
-done
+##for threads in 2 4 8 16
+##do
+##  for loops in 20000000 40000000 80000000 160000000
+##  do
+##    for runs in `seq 3`
+##      do
+##        /usr/bin/time -f "$CORES, $loops, $threads, %e, %U, %S" \
+##            --append --quiet --output=$CSVFILE \
+##            $1 $loops $threads
+##    done
+##  done
+##done
 
 
 # Use python to produce plot of results for $CORES
